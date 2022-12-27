@@ -1,0 +1,5285 @@
+basePath: /
+definitions:
+  api.CrudAPI:
+    properties:
+      create_url:
+        type: string
+      delete_url:
+        type: string
+      fetch_ddl_url:
+        type: string
+      name:
+        type: string
+      retrieve_many_url:
+        type: string
+      retrieve_one_url:
+        type: string
+      table_info:
+        $ref: '#/definitions/model.TableInfo'
+        type: object
+      update_url:
+        type: string
+    type: object
+  api.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  api.PagedResults:
+    properties:
+      data:
+        type: object
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total_records:
+        type: integer
+    type: object
+  model.ActiveAdminComments:
+    properties:
+      author_id:
+        description: '[ 6] author_id                                      bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      author_type:
+        description: '[ 5] author_type                                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      body:
+        description: '[ 2] body                                           text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      created_at:
+        description: '[ 7] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      namespace:
+        description: '[ 1] namespace                                      varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      resource_id:
+        description: '[ 4] resource_id                                    bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      resource_type:
+        description: '[ 3] resource_type                                  varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 8] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.ActiveStorageAttachments:
+    properties:
+      blob_id:
+        description: '[ 4] blob_id                                        bigint               null:
+          false  primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: integer
+      created_at:
+        description: '[ 5] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      name:
+        description: '[ 1] name                                           varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      record_id:
+        description: '[ 3] record_id                                      bigint               null:
+          false  primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: integer
+      record_type:
+        description: '[ 2] record_type                                    varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+    type: object
+  model.ActiveStorageBlobs:
+    properties:
+      byte_size:
+        description: '[ 5] byte_size                                      bigint               null:
+          false  primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: integer
+      checksum:
+        description: '[ 6] checksum                                       varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      content_type:
+        description: '[ 3] content_type                                   varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      created_at:
+        description: '[ 7] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      filename:
+        description: '[ 2] filename                                       varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      key:
+        description: '[ 1] key                                            varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      metadata:
+        description: '[ 4] metadata                                       text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+    type: object
+  model.Addresses:
+    properties:
+      address_type:
+        description: '[ 1] address_type                                   varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      city:
+        description: '[ 6] city                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      country:
+        description: '[ 8] country                                        varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      created_at:
+        description: '[10] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      entity:
+        description: '[ 3] entity                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      latitude:
+        description: '[12] latitude                                       float                null:
+          true   primary: false  isArray: false  auto: false  col: float           len:
+          -1      default: []'
+        type: string
+      longitude:
+        description: '[13] longitude                                      float                null:
+          true   primary: false  isArray: false  auto: false  col: float           len:
+          -1      default: []'
+        type: string
+      notes:
+        description: '[ 9] notes                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_and_street:
+        description: '[ 4] number_and_street                              varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      postal_code:
+        description: '[ 7] postal_code                                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      status:
+        description: '[ 2] status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      suite_or_apartment:
+        description: '[ 5] suite_or_apartment                             varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[11] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.AdminUsers:
+    properties:
+      created_at:
+        description: '[ 6] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      email:
+        description: '[ 1] email                                          varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      encrypted_password:
+        description: '[ 2] encrypted_password                             varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      remember_created_at:
+        description: '[ 5] remember_created_at                            datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      reset_password_sent_at:
+        description: '[ 4] reset_password_sent_at                         datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      reset_password_token:
+        description: '[ 3] reset_password_token                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 7] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.ArInternalMetadata_:
+    properties:
+      created_at:
+        description: '[ 2] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      key:
+        description: '[ 0] key                                            varchar(255)         null:
+          false  primary: true   isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 3] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      value:
+        description: '[ 1] value                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+    type: object
+  model.Batteries_:
+    properties:
+      building_id:
+        description: '[ 1] building_id                                    bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      columns:
+        $ref: '#/definitions/model.Columns_'
+        type: object
+      commission_date:
+        description: '[ 5] CommissionDate                                 date                 null:
+          true   primary: false  isArray: false  auto: false  col: date            len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[10] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      employee_id:
+        description: '[ 0] employee_id                                    bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 2] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      information:
+        description: '[ 8] Information                                    text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      last_inspection_date:
+        description: '[ 6] LastInspectionDate                             date                 null:
+          true   primary: false  isArray: false  auto: false  col: date            len:
+          -1      default: []'
+        type: string
+      notes:
+        description: '[ 9] Notes                                          text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      operations_cert:
+        description: '[ 7] OperationsCert                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      status:
+        description: '[ 4] Status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      type:
+        description: '[ 3] Type                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[11] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BlazerAudits_:
+    properties:
+      created_at:
+        description: '[ 5] created_at                                     datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      data_source:
+        description: '[ 4] data_source                                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      query_id:
+        description: '[ 2] query_id                                       bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      statement:
+        description: '[ 3] statement                                      text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      user_id:
+        description: '[ 1] user_id                                        bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BlazerChecks_:
+    properties:
+      check_type:
+        description: '[ 7] check_type                                     varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      created_at:
+        description: '[10] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      creator_id:
+        description: '[ 1] creator_id                                     bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      emails:
+        description: '[ 5] emails                                         text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      last_run_at:
+        description: '[ 9] last_run_at                                    datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      message:
+        description: '[ 8] message                                        text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      query_id:
+        description: '[ 2] query_id                                       bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      schedule:
+        description: '[ 4] schedule                                       varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      slack_channels:
+        description: '[ 6] slack_channels                                 text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      state:
+        description: '[ 3] state                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[11] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BlazerDashboardQueries_:
+    properties:
+      created_at:
+        description: '[ 4] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      dashboard_id:
+        description: '[ 1] dashboard_id                                   bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      position:
+        description: '[ 3] position                                       int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      query_id:
+        description: '[ 2] query_id                                       bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      updated_at:
+        description: '[ 5] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BlazerDashboards_:
+    properties:
+      created_at:
+        description: '[ 3] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      creator_id:
+        description: '[ 1] creator_id                                     bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      name:
+        description: '[ 2] name                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 4] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BlazerQueries_:
+    properties:
+      created_at:
+        description: '[ 7] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      creator_id:
+        description: '[ 1] creator_id                                     bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      data_source:
+        description: '[ 5] data_source                                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      description:
+        description: '[ 3] description                                    text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      name:
+        description: '[ 2] name                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      statement:
+        description: '[ 4] statement                                      text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      status:
+        description: '[ 6] status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 8] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.BuildingDetails_:
+    properties:
+      building_id:
+        description: '[ 0] building_id                                    bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[ 4] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 1] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      information_key:
+        description: '[ 2] InformationKey                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 5] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      value:
+        description: '[ 3] Value                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+    type: object
+  model.Buildings_:
+    properties:
+      address_id:
+        description: '[ 1] address_id                                     bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[ 9] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      customer_id:
+        description: '[ 0] customer_id                                    bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      email_of_admin_of_building:
+        description: '[ 4] EmailOfAdminOfBuilding                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      full_name_of_building_admin:
+        description: '[ 3] FullNameOfBuildingAdmin                        varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      full_name_of_tech_contact_for_building:
+        description: '[ 6] FullNameOfTechContactForBuilding               varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 2] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      phone_num_of_building_admin:
+        description: '[ 5] PhoneNumOfBuildingAdmin                        int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      tech_contact_email_for_building:
+        description: '[ 7] TechContactEmailForBuilding                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      tech_contact_phone_for_building:
+        description: '[ 8] TechContactPhoneForBuilding                    int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      updated_at:
+        description: '[10] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.ColumnInfo:
+    properties:
+      column_length:
+        type: integer
+      column_type:
+        type: string
+      comment:
+        type: string
+      database_type_name:
+        type: string
+      database_type_pretty:
+        type: string
+      default_value:
+        type: string
+      go_field_name:
+        type: string
+      go_field_type:
+        type: string
+      index:
+        type: integer
+      is_array:
+        type: boolean
+      is_auto_increment:
+        type: boolean
+      is_nullable:
+        type: boolean
+      is_primary_key:
+        type: boolean
+      json_field_name:
+        type: string
+      name:
+        type: string
+      notes:
+        type: string
+      protobuf_field_name:
+        type: string
+      protobuf_field_pos:
+        type: integer
+      protobuf_field_type:
+        type: string
+    type: object
+  model.Columns_:
+    properties:
+      battery_id:
+        description: '[ 0] battery_id                                     bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[ 7] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 1] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      information:
+        description: '[ 5] Information                                    text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      notes:
+        description: '[ 6] Notes                                          text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      num_of_floors_served:
+        description: '[ 3] NumOfFloorsServed                              int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      status:
+        description: '[ 4] Status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      type:
+        description: '[ 2] Type                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 8] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Customers_:
+    items:
+      properties:
+        address_id:
+          description: '[ 0] address_id                                     bigint               null:
+            true   primary: false  isArray: false  auto: false  col: bigint          len:
+            -1      default: []'
+          type: string
+        company_contact_e_mail:
+          description: '[ 9] CompanyContactEMail                            varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        company_contact_phone:
+          description: '[ 8] CompanyContactPhone                            varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        company_desc:
+          description: '[10] CompanyDesc                                    text(65535)          null:
+            true   primary: false  isArray: false  auto: false  col: text            len:
+            65535   default: []'
+          type: string
+        company_hq_adress:
+          description: '[ 6] CompanyHQAdress                                varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        company_name:
+          description: '[ 5] CompanyName                                    varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        created_at:
+          description: '[14] created_at                                     datetime             null:
+            false  primary: false  isArray: false  auto: false  col: datetime        len:
+            -1      default: []'
+          type: string
+        customer_creation_date:
+          description: '[ 3] CustomerCreationDate                           varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        date:
+          description: '[ 4] date                                           varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        full_name_of_company_contact:
+          description: '[ 7] FullNameOfCompanyContact                       varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        full_name_service_tech_auth:
+          description: '[11] FullNameServiceTechAuth                        varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        id:
+          description: '[ 2] id                                             bigint               null:
+            false  primary: true   isArray: false  auto: true   col: bigint          len:
+            -1      default: []'
+          type: integer
+        interventions_:
+          items:
+            $ref: '#/definitions/model.Interventions_'
+          type: array
+        tech_auth_phone_service:
+          description: '[12] TechAuthPhoneService                           varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        tech_manager_email_service:
+          description: '[13] TechManagerEmailService                        varchar(255)         null:
+            true   primary: false  isArray: false  auto: false  col: varchar         len:
+            255     default: []'
+          type: string
+        updated_at:
+          description: '[15] updated_at                                     datetime             null:
+            false  primary: false  isArray: false  auto: false  col: datetime        len:
+            -1      default: []'
+          type: string
+        user_id:
+          description: '[ 1] user_id                                        bigint               null:
+            true   primary: false  isArray: false  auto: false  col: bigint          len:
+            -1      default: []'
+          type: string
+      type: object
+    type: array
+  model.Elevators_:
+    properties:
+      column_id:
+        description: '[ 0] column_id                                      bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+      commision_date:
+        description: '[ 6] CommisionDate                                  date                 null:
+          true   primary: false  isArray: false  auto: false  col: date            len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[11] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 1] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      information:
+        description: '[ 9] Information                                    text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      inspection_cert:
+        description: '[ 8] InspectionCert                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      last_inspection_date:
+        description: '[ 7] LastInspectionDate                             date                 null:
+          true   primary: false  isArray: false  auto: false  col: date            len:
+          -1      default: []'
+        type: string
+      model:
+        description: '[ 3] Model                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      notes:
+        description: '[10] Notes                                          text(65535)          null:
+          true   primary: false  isArray: false  auto: false  col: text            len:
+          65535   default: []'
+        type: string
+      serial_number:
+        description: '[ 2] SerialNumber                                   int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      status:
+        description: '[ 5] Status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      type:
+        description: '[ 4] Type                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[12] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Employees:
+    properties:
+      created_at:
+        description: '[ 6] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      email:
+        description: '[ 5] email                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      first_name:
+        description: '[ 2] first_name                                     varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 1] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      last_name:
+        description: '[ 3] last_name                                      varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      title:
+        description: '[ 4] title                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 7] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      user_id:
+        description: '[ 0] user_id                                        bigint               null:
+          true   primary: false  isArray: false  auto: false  col: bigint          len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Interventions_:
+    properties:
+      author:
+        description: '[ 1] author                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      battery_id:
+        description: '[ 4] battery_id                                     int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      building_id:
+        description: '[ 3] building_id                                    int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      column_id:
+        description: '[ 5] column_id                                      int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      created_at:
+        description: '[13] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      customer_id:
+        description: '[ 2] customer_id                                    int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      elevator_id:
+        description: '[ 6] elevator_id                                    int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      employee_id:
+        description: '[ 7] employee_id                                    int                  null:
+          true   primary: false  isArray: false  auto: false  col: int             len:
+          -1      default: []'
+        type: string
+      end_datetime:
+        description: '[ 9] end_datetime                                   datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      report:
+        description: '[11] report                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      result:
+        description: '[10] result                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      start_datetime:
+        description: '[ 8] start_datetime                                 datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      status:
+        description: '[12] status                                         varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[14] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Leads:
+    properties:
+      attached_file:
+        description: '[ 9] Attached_file                                  blob                 null:
+          true   primary: false  isArray: false  auto: false  col: blob            len:
+          -1      default: []'
+        items:
+          type: integer
+        type: array
+      bussiness_name:
+        description: '[ 2] Bussiness_name                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      created_at:
+        description: '[11] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      creation_date:
+        description: '[10] Creation_date                                  datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      department_incharge:
+        description: '[ 7] Department_incharge                            varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      email:
+        description: '[ 3] Email                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      full_name_of_the_contact:
+        description: '[ 1] Full_name_of_the_contact                       varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      message:
+        description: '[ 8] Message                                        varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      phone:
+        description: '[ 4] Phone                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      project_description:
+        description: '[ 6] Project_description                            varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      project_name:
+        description: '[ 5] Project_name                                   varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[12] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Maps_:
+    properties:
+      created_at:
+        description: '[ 1] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      updated_at:
+        description: '[ 2] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.Quotes:
+    properties:
+      building_type:
+        description: '[ 1] building_type                                  varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      company_name:
+        description: '[19] company_name                                   varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      created_at:
+        description: '[16] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      department:
+        description: '[22] department                                     varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      elevator_price:
+        description: '[13] elevator_price                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      email:
+        description: '[20] email                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      final_price:
+        description: '[15] final_price                                    varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      installation_fee:
+        description: '[14] installation_fee                               varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      name:
+        description: '[18] name                                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_apartments:
+        description: '[ 3] number_of_apartments                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_basements:
+        description: '[ 6] number_of_basements                            varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_businesses:
+        description: '[ 5] number_of_businesses                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_cages:
+        description: '[ 8] number_of_cages                                varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_elevators_needed:
+        description: '[11] number_of_elevators_needed                     varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_floors:
+        description: '[ 4] number_of_floors                               varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_hours:
+        description: '[10] number_of_hours                                varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_occupants:
+        description: '[ 9] number_of_occupants                            varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      number_of_parking:
+        description: '[ 7] number_of_parking                              varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      phone:
+        description: '[21] phone                                          varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      price_per_unit:
+        description: '[12] price_per_unit                                 varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      project_description:
+        description: '[24] project_description                            varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      project_name:
+        description: '[23] project_name                                   varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      service_quality:
+        description: '[ 2] service_quality                                varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[17] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+  model.SchemaMigrations_:
+    properties:
+      version:
+        description: '[ 0] version                                        varchar(255)         null:
+          false  primary: true   isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+    type: object
+  model.TableInfo:
+    properties:
+      columns:
+        items:
+          $ref: '#/definitions/model.ColumnInfo'
+        type: array
+      name:
+        type: string
+    type: object
+  model.Users_:
+    properties:
+      created_at:
+        description: '[ 6] created_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      email:
+        description: '[ 1] email                                          varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      encrypted_password:
+        description: '[ 2] encrypted_password                             varchar(255)         null:
+          false  primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      id:
+        description: '[ 0] id                                             bigint               null:
+          false  primary: true   isArray: false  auto: true   col: bigint          len:
+          -1      default: []'
+        type: integer
+      remember_created_at:
+        description: '[ 5] remember_created_at                            datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      reset_password_sent_at:
+        description: '[ 4] reset_password_sent_at                         datetime             null:
+          true   primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+      reset_password_token:
+        description: '[ 3] reset_password_token                           varchar(255)         null:
+          true   primary: false  isArray: false  auto: false  col: varchar         len:
+          255     default: []'
+        type: string
+      updated_at:
+        description: '[ 7] updated_at                                     datetime             null:
+          false  primary: false  isArray: false  auto: false  col: datetime        len:
+          -1      default: []'
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: me@me.com
+    name: Me
+    url: http://me.com/terms.html
+  description: Sample CRUD api for rocket_development db
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Sample CRUD api for rocket_development db
+  version: "1.0"
+paths:
+  /activeadmincomments:
+    get:
+      consumes:
+      - application/json
+      description: GetAllActiveAdminComments is a handler to get a slice of record(s)
+        from active_admin_comments table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of ActiveAdminComments
+      tags:
+      - ActiveAdminComments
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to active_admin_comments table in the
+        rocket_development database
+      parameters:
+      - description: Add ActiveAdminComments
+        in: body
+        name: ActiveAdminComments
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveAdminComments'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveAdminComments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to active_admin_comments table
+      tags:
+      - ActiveAdminComments
+  /activeadmincomments/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from active_admin_comments table in the
+        rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.ActiveAdminComments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from active_admin_comments
+      tags:
+      - ActiveAdminComments
+    get:
+      consumes:
+      - application/json
+      description: GetActiveAdminComments is a function to get a single record from
+        the active_admin_comments table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveAdminComments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table ActiveAdminComments by  argID
+      tags:
+      - ActiveAdminComments
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from active_admin_comments table in the
+        rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update ActiveAdminComments record
+        in: body
+        name: ActiveAdminComments
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveAdminComments'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveAdminComments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table active_admin_comments
+      tags:
+      - ActiveAdminComments
+  /activestorageattachments:
+    get:
+      consumes:
+      - application/json
+      description: GetAllActiveStorageAttachments is a handler to get a slice of record(s)
+        from active_storage_attachments table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of ActiveStorageAttachments
+      tags:
+      - ActiveStorageAttachments
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to active_storage_attachments table
+        in the rocket_development database
+      parameters:
+      - description: Add ActiveStorageAttachments
+        in: body
+        name: ActiveStorageAttachments
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveStorageAttachments'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageAttachments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to active_storage_attachments table
+      tags:
+      - ActiveStorageAttachments
+  /activestorageattachments/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from active_storage_attachments table in
+        the rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.ActiveStorageAttachments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from active_storage_attachments
+      tags:
+      - ActiveStorageAttachments
+    get:
+      consumes:
+      - application/json
+      description: GetActiveStorageAttachments is a function to get a single record
+        from the active_storage_attachments table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageAttachments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table ActiveStorageAttachments by  argID
+      tags:
+      - ActiveStorageAttachments
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from active_storage_attachments table in
+        the rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update ActiveStorageAttachments record
+        in: body
+        name: ActiveStorageAttachments
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveStorageAttachments'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageAttachments'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table active_storage_attachments
+      tags:
+      - ActiveStorageAttachments
+  /activestorageblobs:
+    get:
+      consumes:
+      - application/json
+      description: GetAllActiveStorageBlobs is a handler to get a slice of record(s)
+        from active_storage_blobs table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of ActiveStorageBlobs
+      tags:
+      - ActiveStorageBlobs
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to active_storage_blobs table in the
+        rocket_development database
+      parameters:
+      - description: Add ActiveStorageBlobs
+        in: body
+        name: ActiveStorageBlobs
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveStorageBlobs'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageBlobs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to active_storage_blobs table
+      tags:
+      - ActiveStorageBlobs
+  /activestorageblobs/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from active_storage_blobs table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.ActiveStorageBlobs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from active_storage_blobs
+      tags:
+      - ActiveStorageBlobs
+    get:
+      consumes:
+      - application/json
+      description: GetActiveStorageBlobs is a function to get a single record from
+        the active_storage_blobs table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageBlobs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table ActiveStorageBlobs by  argID
+      tags:
+      - ActiveStorageBlobs
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from active_storage_blobs table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update ActiveStorageBlobs record
+        in: body
+        name: ActiveStorageBlobs
+        required: true
+        schema:
+          $ref: '#/definitions/model.ActiveStorageBlobs'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ActiveStorageBlobs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table active_storage_blobs
+      tags:
+      - ActiveStorageBlobs
+  /addresses:
+    get:
+      consumes:
+      - application/json
+      description: GetAllAddresses is a handler to get a slice of record(s) from addresses
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Addresses
+      tags:
+      - Addresses
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to addresses table in the rocket_development
+        database
+      parameters:
+      - description: Add Addresses
+        in: body
+        name: Addresses
+        required: true
+        schema:
+          $ref: '#/definitions/model.Addresses'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Addresses'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to addresses table
+      tags:
+      - Addresses
+  /addresses/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from addresses table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Addresses'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from addresses
+      tags:
+      - Addresses
+    get:
+      consumes:
+      - application/json
+      description: GetAddresses is a function to get a single record from the addresses
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Addresses'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Addresses by  argID
+      tags:
+      - Addresses
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from addresses table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Addresses record
+        in: body
+        name: Addresses
+        required: true
+        schema:
+          $ref: '#/definitions/model.Addresses'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Addresses'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table addresses
+      tags:
+      - Addresses
+  /adminusers:
+    get:
+      consumes:
+      - application/json
+      description: GetAllAdminUsers is a handler to get a slice of record(s) from
+        admin_users table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of AdminUsers
+      tags:
+      - AdminUsers
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to admin_users table in the rocket_development
+        database
+      parameters:
+      - description: Add AdminUsers
+        in: body
+        name: AdminUsers
+        required: true
+        schema:
+          $ref: '#/definitions/model.AdminUsers'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AdminUsers'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to admin_users table
+      tags:
+      - AdminUsers
+  /adminusers/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from admin_users table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.AdminUsers'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from admin_users
+      tags:
+      - AdminUsers
+    get:
+      consumes:
+      - application/json
+      description: GetAdminUsers is a function to get a single record from the admin_users
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AdminUsers'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table AdminUsers by  argID
+      tags:
+      - AdminUsers
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from admin_users table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update AdminUsers record
+        in: body
+        name: AdminUsers
+        required: true
+        schema:
+          $ref: '#/definitions/model.AdminUsers'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AdminUsers'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table admin_users
+      tags:
+      - AdminUsers
+  /arinternalmetadata_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllArInternalMetadata_ is a handler to get a slice of record(s)
+        from ar_internal_metadata table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of ArInternalMetadata_
+      tags:
+      - ArInternalMetadata_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to ar_internal_metadata table in the
+        rocket_development database
+      parameters:
+      - description: Add ArInternalMetadata_
+        in: body
+        name: ArInternalMetadata_
+        required: true
+        schema:
+          $ref: '#/definitions/model.ArInternalMetadata_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ArInternalMetadata_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to ar_internal_metadata table
+      tags:
+      - ArInternalMetadata_
+  /arinternalmetadata_/{argKey}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from ar_internal_metadata table in the rocket_development
+        database
+      parameters:
+      - description: key
+        in: path
+        name: argKey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.ArInternalMetadata_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from ar_internal_metadata
+      tags:
+      - ArInternalMetadata_
+    get:
+      consumes:
+      - application/json
+      description: GetArInternalMetadata_ is a function to get a single record from
+        the ar_internal_metadata table in the rocket_development database
+      operationId: argKey
+      parameters:
+      - description: key
+        in: path
+        name: argKey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ArInternalMetadata_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table ArInternalMetadata_ by  argKey
+      tags:
+      - ArInternalMetadata_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from ar_internal_metadata table in the rocket_development
+        database
+      parameters:
+      - description: key
+        in: path
+        name: argKey
+        required: true
+        type: string
+      - description: Update ArInternalMetadata_ record
+        in: body
+        name: ArInternalMetadata_
+        required: true
+        schema:
+          $ref: '#/definitions/model.ArInternalMetadata_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ArInternalMetadata_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table ar_internal_metadata
+      tags:
+      - ArInternalMetadata_
+  /batteries_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBatteries_ is a handler to get a slice of record(s) from
+        batteries table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Batteries_
+      tags:
+      - Batteries_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to batteries table in the rocket_development
+        database
+      parameters:
+      - description: Add Batteries_
+        in: body
+        name: Batteries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Batteries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Batteries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to batteries table
+      tags:
+      - Batteries_
+  /batteries_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from batteries table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Batteries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from batteries
+      tags:
+      - Batteries_
+    get:
+      consumes:
+      - application/json
+      description: GetBatteries_ is a function to get a single record from the batteries
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Batteries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Batteries_ by  argID
+      tags:
+      - Batteries_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from batteries table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Batteries_ record
+        in: body
+        name: Batteries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Batteries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Batteries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table batteries
+      tags:
+      - Batteries_
+  /blazeraudits_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBlazerAudits_ is a handler to get a slice of record(s) from
+        blazer_audits table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BlazerAudits_
+      tags:
+      - BlazerAudits_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to blazer_audits table in the rocket_development
+        database
+      parameters:
+      - description: Add BlazerAudits_
+        in: body
+        name: BlazerAudits_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerAudits_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerAudits_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to blazer_audits table
+      tags:
+      - BlazerAudits_
+  /blazeraudits_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from blazer_audits table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BlazerAudits_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from blazer_audits
+      tags:
+      - BlazerAudits_
+    get:
+      consumes:
+      - application/json
+      description: GetBlazerAudits_ is a function to get a single record from the
+        blazer_audits table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerAudits_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BlazerAudits_ by  argID
+      tags:
+      - BlazerAudits_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from blazer_audits table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BlazerAudits_ record
+        in: body
+        name: BlazerAudits_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerAudits_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerAudits_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table blazer_audits
+      tags:
+      - BlazerAudits_
+  /blazerchecks_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBlazerChecks_ is a handler to get a slice of record(s) from
+        blazer_checks table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BlazerChecks_
+      tags:
+      - BlazerChecks_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to blazer_checks table in the rocket_development
+        database
+      parameters:
+      - description: Add BlazerChecks_
+        in: body
+        name: BlazerChecks_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerChecks_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerChecks_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to blazer_checks table
+      tags:
+      - BlazerChecks_
+  /blazerchecks_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from blazer_checks table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BlazerChecks_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from blazer_checks
+      tags:
+      - BlazerChecks_
+    get:
+      consumes:
+      - application/json
+      description: GetBlazerChecks_ is a function to get a single record from the
+        blazer_checks table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerChecks_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BlazerChecks_ by  argID
+      tags:
+      - BlazerChecks_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from blazer_checks table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BlazerChecks_ record
+        in: body
+        name: BlazerChecks_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerChecks_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerChecks_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table blazer_checks
+      tags:
+      - BlazerChecks_
+  /blazerdashboardqueries_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBlazerDashboardQueries_ is a handler to get a slice of record(s)
+        from blazer_dashboard_queries table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BlazerDashboardQueries_
+      tags:
+      - BlazerDashboardQueries_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to blazer_dashboard_queries table in
+        the rocket_development database
+      parameters:
+      - description: Add BlazerDashboardQueries_
+        in: body
+        name: BlazerDashboardQueries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerDashboardQueries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboardQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to blazer_dashboard_queries table
+      tags:
+      - BlazerDashboardQueries_
+  /blazerdashboardqueries_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from blazer_dashboard_queries table in the
+        rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BlazerDashboardQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from blazer_dashboard_queries
+      tags:
+      - BlazerDashboardQueries_
+    get:
+      consumes:
+      - application/json
+      description: GetBlazerDashboardQueries_ is a function to get a single record
+        from the blazer_dashboard_queries table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboardQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BlazerDashboardQueries_ by  argID
+      tags:
+      - BlazerDashboardQueries_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from blazer_dashboard_queries table in the
+        rocket_development database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BlazerDashboardQueries_ record
+        in: body
+        name: BlazerDashboardQueries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerDashboardQueries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboardQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table blazer_dashboard_queries
+      tags:
+      - BlazerDashboardQueries_
+  /blazerdashboards_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBlazerDashboards_ is a handler to get a slice of record(s)
+        from blazer_dashboards table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BlazerDashboards_
+      tags:
+      - BlazerDashboards_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to blazer_dashboards table in the rocket_development
+        database
+      parameters:
+      - description: Add BlazerDashboards_
+        in: body
+        name: BlazerDashboards_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerDashboards_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboards_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to blazer_dashboards table
+      tags:
+      - BlazerDashboards_
+  /blazerdashboards_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from blazer_dashboards table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BlazerDashboards_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from blazer_dashboards
+      tags:
+      - BlazerDashboards_
+    get:
+      consumes:
+      - application/json
+      description: GetBlazerDashboards_ is a function to get a single record from
+        the blazer_dashboards table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboards_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BlazerDashboards_ by  argID
+      tags:
+      - BlazerDashboards_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from blazer_dashboards table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BlazerDashboards_ record
+        in: body
+        name: BlazerDashboards_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerDashboards_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerDashboards_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table blazer_dashboards
+      tags:
+      - BlazerDashboards_
+  /blazerqueries_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBlazerQueries_ is a handler to get a slice of record(s) from
+        blazer_queries table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BlazerQueries_
+      tags:
+      - BlazerQueries_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to blazer_queries table in the rocket_development
+        database
+      parameters:
+      - description: Add BlazerQueries_
+        in: body
+        name: BlazerQueries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerQueries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to blazer_queries table
+      tags:
+      - BlazerQueries_
+  /blazerqueries_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from blazer_queries table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BlazerQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from blazer_queries
+      tags:
+      - BlazerQueries_
+    get:
+      consumes:
+      - application/json
+      description: GetBlazerQueries_ is a function to get a single record from the
+        blazer_queries table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BlazerQueries_ by  argID
+      tags:
+      - BlazerQueries_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from blazer_queries table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BlazerQueries_ record
+        in: body
+        name: BlazerQueries_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BlazerQueries_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BlazerQueries_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table blazer_queries
+      tags:
+      - BlazerQueries_
+  /buildingdetails_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBuildingDetails_ is a handler to get a slice of record(s)
+        from building_details table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of BuildingDetails_
+      tags:
+      - BuildingDetails_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to building_details table in the rocket_development
+        database
+      parameters:
+      - description: Add BuildingDetails_
+        in: body
+        name: BuildingDetails_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BuildingDetails_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BuildingDetails_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to building_details table
+      tags:
+      - BuildingDetails_
+  /buildingdetails_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from building_details table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.BuildingDetails_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from building_details
+      tags:
+      - BuildingDetails_
+    get:
+      consumes:
+      - application/json
+      description: GetBuildingDetails_ is a function to get a single record from the
+        building_details table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BuildingDetails_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table BuildingDetails_ by  argID
+      tags:
+      - BuildingDetails_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from building_details table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update BuildingDetails_ record
+        in: body
+        name: BuildingDetails_
+        required: true
+        schema:
+          $ref: '#/definitions/model.BuildingDetails_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.BuildingDetails_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table building_details
+      tags:
+      - BuildingDetails_
+  /buildings_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllBuildings_ is a handler to get a slice of record(s) from
+        buildings table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Buildings_
+      tags:
+      - Buildings_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to buildings table in the rocket_development
+        database
+      parameters:
+      - description: Add Buildings_
+        in: body
+        name: Buildings_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Buildings_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Buildings_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to buildings table
+      tags:
+      - Buildings_
+  /buildings_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from buildings table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Buildings_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from buildings
+      tags:
+      - Buildings_
+    get:
+      consumes:
+      - application/json
+      description: GetBuildings_ is a function to get a single record from the buildings
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Buildings_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Buildings_ by  argID
+      tags:
+      - Buildings_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from buildings table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Buildings_ record
+        in: body
+        name: Buildings_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Buildings_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Buildings_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table buildings
+      tags:
+      - Buildings_
+  /columns_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllColumns_ is a handler to get a slice of record(s) from columns
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Columns_
+      tags:
+      - Columns_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to columns table in the rocket_development
+        database
+      parameters:
+      - description: Add Columns_
+        in: body
+        name: Columns_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Columns_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Columns_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to columns table
+      tags:
+      - Columns_
+  /columns_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from columns table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Columns_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from columns
+      tags:
+      - Columns_
+    get:
+      consumes:
+      - application/json
+      description: GetColumns_ is a function to get a single record from the columns
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Columns_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Columns_ by  argID
+      tags:
+      - Columns_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from columns table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Columns_ record
+        in: body
+        name: Columns_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Columns_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Columns_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table columns
+      tags:
+      - Columns_
+  /customers_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllCustomers_ is a handler to get a slice of record(s) from
+        customers table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Customers_
+      tags:
+      - Customers_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to customers table in the rocket_development
+        database
+      parameters:
+      - description: Add Customers_
+        in: body
+        name: Customers_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Customers_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Customers_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to customers table
+      tags:
+      - Customers_
+  /customers_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from customers table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Customers_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from customers
+      tags:
+      - Customers_
+    get:
+      consumes:
+      - application/json
+      description: GetCustomers_ is a function to get a single record from the customers
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Customers_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Customers_ by  argID
+      tags:
+      - Customers_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from customers table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Customers_ record
+        in: body
+        name: Customers_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Customers_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Customers_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table customers
+      tags:
+      - Customers_
+  /ddl:
+    get:
+      consumes:
+      - application/json
+      description: GetDdlEndpoints is a function to get a list of ddl endpoints available
+        for tables in the rocket_development database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.CrudAPI'
+      summary: Gets a list of ddl endpoints available for tables in the rocket_development
+        database
+      tags:
+      - TableInfo
+  /ddl/{argID}:
+    get:
+      consumes:
+      - application/json
+      description: GetDdl is a function to get table info for a table in the rocket_development
+        database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.CrudAPI'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get table info for a table in the rocket_development database by argID
+      tags:
+      - TableInfo
+  /elevators_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllElevators_ is a handler to get a slice of record(s) from
+        elevators table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Elevators_
+      tags:
+      - Elevators_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to elevators table in the rocket_development
+        database
+      parameters:
+      - description: Add Elevators_
+        in: body
+        name: Elevators_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Elevators_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Elevators_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to elevators table
+      tags:
+      - Elevators_
+  /elevators_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from elevators table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Elevators_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from elevators
+      tags:
+      - Elevators_
+    get:
+      consumes:
+      - application/json
+      description: GetElevators_ is a function to get a single record from the elevators
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Elevators_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Elevators_ by  argID
+      tags:
+      - Elevators_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from elevators table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Elevators_ record
+        in: body
+        name: Elevators_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Elevators_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Elevators_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table elevators
+      tags:
+      - Elevators_
+  /employees:
+    get:
+      consumes:
+      - application/json
+      description: GetAllEmployees is a handler to get a slice of record(s) from employees
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Employees
+      tags:
+      - Employees
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to employees table in the rocket_development
+        database
+      parameters:
+      - description: Add Employees
+        in: body
+        name: Employees
+        required: true
+        schema:
+          $ref: '#/definitions/model.Employees'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Employees'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to employees table
+      tags:
+      - Employees
+  /employees/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from employees table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Employees'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from employees
+      tags:
+      - Employees
+    get:
+      consumes:
+      - application/json
+      description: GetEmployees is a function to get a single record from the employees
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Employees'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Employees by  argID
+      tags:
+      - Employees
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from employees table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Employees record
+        in: body
+        name: Employees
+        required: true
+        schema:
+          $ref: '#/definitions/model.Employees'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Employees'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table employees
+      tags:
+      - Employees
+  /interventions_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllInterventions_ is a handler to get a slice of record(s) from
+        interventions table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Interventions_
+      tags:
+      - Interventions_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to interventions table in the rocket_development
+        database
+      parameters:
+      - description: Add Interventions_
+        in: body
+        name: Interventions_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Interventions_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Interventions_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to interventions table
+      tags:
+      - Interventions_
+  /interventions_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from interventions table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Interventions_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from interventions
+      tags:
+      - Interventions_
+    get:
+      consumes:
+      - application/json
+      description: GetInterventions_ is a function to get a single record from the
+        interventions table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Interventions_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Interventions_ by  argID
+      tags:
+      - Interventions_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from interventions table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Interventions_ record
+        in: body
+        name: Interventions_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Interventions_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Interventions_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table interventions
+      tags:
+      - Interventions_
+  /leads:
+    get:
+      consumes:
+      - application/json
+      description: GetAllLeads is a handler to get a slice of record(s) from leads
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Leads
+      tags:
+      - Leads
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to leads table in the rocket_development
+        database
+      parameters:
+      - description: Add Leads
+        in: body
+        name: Leads
+        required: true
+        schema:
+          $ref: '#/definitions/model.Leads'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Leads'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to leads table
+      tags:
+      - Leads
+  /leads/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from leads table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Leads'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from leads
+      tags:
+      - Leads
+    get:
+      consumes:
+      - application/json
+      description: GetLeads is a function to get a single record from the leads table
+        in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Leads'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Leads by  argID
+      tags:
+      - Leads
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from leads table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Leads record
+        in: body
+        name: Leads
+        required: true
+        schema:
+          $ref: '#/definitions/model.Leads'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Leads'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table leads
+      tags:
+      - Leads
+  /maps_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllMaps_ is a handler to get a slice of record(s) from maps
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Maps_
+      tags:
+      - Maps_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to maps table in the rocket_development
+        database
+      parameters:
+      - description: Add Maps_
+        in: body
+        name: Maps_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Maps_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Maps_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to maps table
+      tags:
+      - Maps_
+  /maps_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from maps table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Maps_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from maps
+      tags:
+      - Maps_
+    get:
+      consumes:
+      - application/json
+      description: GetMaps_ is a function to get a single record from the maps table
+        in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Maps_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Maps_ by  argID
+      tags:
+      - Maps_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from maps table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Maps_ record
+        in: body
+        name: Maps_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Maps_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Maps_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table maps
+      tags:
+      - Maps_
+  /quotes:
+    get:
+      consumes:
+      - application/json
+      description: GetAllQuotes is a handler to get a slice of record(s) from quotes
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Quotes
+      tags:
+      - Quotes
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to quotes table in the rocket_development
+        database
+      parameters:
+      - description: Add Quotes
+        in: body
+        name: Quotes
+        required: true
+        schema:
+          $ref: '#/definitions/model.Quotes'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Quotes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to quotes table
+      tags:
+      - Quotes
+  /quotes/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from quotes table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Quotes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from quotes
+      tags:
+      - Quotes
+    get:
+      consumes:
+      - application/json
+      description: GetQuotes is a function to get a single record from the quotes
+        table in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Quotes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Quotes by  argID
+      tags:
+      - Quotes
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from quotes table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Quotes record
+        in: body
+        name: Quotes
+        required: true
+        schema:
+          $ref: '#/definitions/model.Quotes'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Quotes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table quotes
+      tags:
+      - Quotes
+  /schemamigrations_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllSchemaMigrations_ is a handler to get a slice of record(s)
+        from schema_migrations table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of SchemaMigrations_
+      tags:
+      - SchemaMigrations_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to schema_migrations table in the rocket_development
+        database
+      parameters:
+      - description: Add SchemaMigrations_
+        in: body
+        name: SchemaMigrations_
+        required: true
+        schema:
+          $ref: '#/definitions/model.SchemaMigrations_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.SchemaMigrations_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to schema_migrations table
+      tags:
+      - SchemaMigrations_
+  /schemamigrations_/{argVersion}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from schema_migrations table in the rocket_development
+        database
+      parameters:
+      - description: version
+        in: path
+        name: argVersion
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.SchemaMigrations_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from schema_migrations
+      tags:
+      - SchemaMigrations_
+    get:
+      consumes:
+      - application/json
+      description: GetSchemaMigrations_ is a function to get a single record from
+        the schema_migrations table in the rocket_development database
+      operationId: argVersion
+      parameters:
+      - description: version
+        in: path
+        name: argVersion
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.SchemaMigrations_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table SchemaMigrations_ by  argVersion
+      tags:
+      - SchemaMigrations_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from schema_migrations table in the rocket_development
+        database
+      parameters:
+      - description: version
+        in: path
+        name: argVersion
+        required: true
+        type: string
+      - description: Update SchemaMigrations_ record
+        in: body
+        name: SchemaMigrations_
+        required: true
+        schema:
+          $ref: '#/definitions/model.SchemaMigrations_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.SchemaMigrations_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table schema_migrations
+      tags:
+      - SchemaMigrations_
+  /users_:
+    get:
+      consumes:
+      - application/json
+      description: GetAllUsers_ is a handler to get a slice of record(s) from users
+        table in the rocket_development database
+      parameters:
+      - description: page requested (defaults to 0)
+        in: query
+        name: page
+        type: integer
+      - description: number of records in a page  (defaults to 20)
+        in: query
+        name: pagesize
+        type: integer
+      - description: db sort order column
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.PagedResults'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get list of Users_
+      tags:
+      - Users_
+    post:
+      consumes:
+      - application/json
+      description: add to add a single record to users table in the rocket_development
+        database
+      parameters:
+      - description: Add Users_
+        in: body
+        name: Users_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Users_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Users_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Add an record to users table
+      tags:
+      - Users_
+  /users_/{argID}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a single record from users table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/model.Users_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Delete a record from users
+      tags:
+      - Users_
+    get:
+      consumes:
+      - application/json
+      description: GetUsers_ is a function to get a single record from the users table
+        in the rocket_development database
+      operationId: argID
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Users_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: ErrNotFound, db record for id not found - returns NotFound
+            HTTP 404 not found error
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Get record from table Users_ by  argID
+      tags:
+      - Users_
+    put:
+      consumes:
+      - application/json
+      description: Update a single record from users table in the rocket_development
+        database
+      parameters:
+      - description: id
+        in: path
+        name: argID
+        required: true
+        type: integer
+      - description: Update Users_ record
+        in: body
+        name: Users_
+        required: true
+        schema:
+          $ref: '#/definitions/model.Users_'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Users_'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.HTTPError'
+      summary: Update an record in table users
+      tags:
+      - Users_
+swagger: "2.0"
