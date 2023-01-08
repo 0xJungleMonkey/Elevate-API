@@ -57,7 +57,8 @@ func GinServer() (err error) {
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	api.ConfigGinRouter(router)
-	router.Run(":8080")
+	// router.Run(":8080")
+	router.Run(":80")
 	if err != nil {
 		log.Fatalf("Error starting server, the error is '%v'", err)
 	}

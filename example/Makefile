@@ -80,10 +80,18 @@ endif
 	$(warning "found swag")
 
 
-
+build_aws: create_dir
+		GOOS=linux GOARCH=amd64 packr2 build -o $(BIN_DIR)/$(BIN_NAME) -a -ldflags '$(COMPILE_LDFLAGS)' $(APP_PATH)
+		
 build_app: create_dir
 		packr2 build -o $(BIN_DIR)/$(BIN_NAME) -a -ldflags '$(COMPILE_LDFLAGS)' $(APP_PATH)
 
+example_aws: build_info ## build example binary in bin dir
+	@echo "build example server"
+	swag init --dir .  --generalInfo ./app/server/main.go
+	make GOOS=linux GOARCH=amd64 BIN_NAME=example APP_PATH=$(PROJ_PATH)/app/server build_app
+	@echo ''
+	@echo ''
 
 example: build_info ## build example binary in bin dir
 	@echo "build example server"
